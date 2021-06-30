@@ -1,5 +1,5 @@
 declare class DateTime {
-    constructor(DateTime: string | number | Date)
+    constructor(DateTime?: string | number | Date)
 
     private DateTime: Date;
     private DateTimeUtc: Date;
@@ -20,7 +20,7 @@ declare class DateTime {
 
     DayOfWeek: number;
 
-    setDate(dateTime: Date): Date
+    private setDate(dateTime: Date): Date
 
     AddYears(value: number): Date
     AddMonths(value: number): Date
@@ -34,8 +34,8 @@ declare class DateTime {
     getDateTimeUtc(): Date
     getTimestamp(): number
 
-    ToString(format: format, culture: culture): string
-    ToStringCustom(format: string): string
+    ToString(format?: format, culture?: culture): string
+    ToStringCustom(format?: string): string
     ToLongDateString(): string
     ToLongTimeString(): string
 }
@@ -43,4 +43,4 @@ declare class DateTime {
 type format = 'json' | 'd' | 'D' | 't' | 'T' | 'g' | 'G' | 'UTC';
 type culture = 'pt-BR' | 'en-US';
 
-export = DateTime
+export default DateTime
