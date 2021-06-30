@@ -1,0 +1,28 @@
+{
+  "name": "system-x64",
+  "version": "1.0.0",
+  "description": "Conversions and dates based on c#",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/macleysousa/system-x64.git"
+  },
+  "keywords": [
+    "date",
+    "datetime",
+    "conversion",
+    "tostring"
+  ],
+  "author": "Macley Sousa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/macleysousa/system-x64/issues"
+  },
+  "homepage": "https://github.com/macleysousa/system-x64#readme"
+}
