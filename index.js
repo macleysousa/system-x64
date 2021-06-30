@@ -1,5 +1,6 @@
-import { DateTime } from './lib/DateTime';
 
-export {
-    DateTime
+var DateTime = require('./lib/DateTime');
+
+module.exports = {
+    DateTime: DateTime
 };
