@@ -1,8 +1,10 @@
 declare class DateTime {
     constructor(DateTime?: string | number | Date)
 
-    private DateTime: Date;
-    private DateTimeUtc: Date;
+    DateTime: Date;
+    DateTimeUtc: Date;
+    Timestamp: number
+
 
     Year: number;
     Months: number;
@@ -22,17 +24,13 @@ declare class DateTime {
 
     private setDate(dateTime: Date): Date
 
-    AddYears(value: number): Date
-    AddMonths(value: number): Date
-    AddDays(value: number): Date
-    AddHours(value: number): Date
-    AddMinutes(value: number): Date
-    AddSeconds(value: number): Date
-    AddMilliseconds(value: number): Date
-
-    getDateTime(): Date
-    getDateTimeUtc(): Date
-    getTimestamp(): number
+    AddYears(value: number): DateTime
+    AddMonths(value: number): DateTime
+    AddDays(value: number): DateTime
+    AddHours(value: number): DateTime
+    AddMinutes(value: number): DateTime
+    AddSeconds(value: number): DateTime
+    AddMilliseconds(value: number): DateTime
 
     ToString(format?: format, culture?: culture): string
     ToStringCustom(format?: string): string

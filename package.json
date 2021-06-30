@@ -1,6 +1,6 @@
 {
   "name": "system-x64",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Conversions and dates based on c#",
   "main": "index.js",
   "directories": {
