@@ -1,4 +1,5 @@
-# system-x64
+# What is system-x64?
+`system-x64` is a package that is based on C# conversions. Transacting functionally like `DateTime`. 
 
 ## Installing
 ```shell
@@ -10,18 +11,57 @@ yarn add system-x64
 ```
 
 <br>
-## Example
 
-<br>
+## DateTime
 
-### using
+### Using
 ```js
 var DateTime = require('./index').DateTime
-//import { DateTime } from 'system-x64';
+//import { DateTime } from 'system-x64'
 ```
 <br>
 
-```json
+### Example
+```js
+const datetime = new DateTime('2000-01-01T00:00:00.000Z');
+
+ console.log({
+     DateTime: {
+         datetime: {
+             DateTime: datetime.DateTime,
+             DateTimeUtc: datetime.DateTimeUtc,
+             Timestamp: datetime.Timestamp
+         },
+         string: {
+             DateTime: datetime.ToString(),
+             Json: datetime.ToString('json'),
+             D: datetime.ToString('D'),
+             d: datetime.ToString('d'),
+             t: datetime.ToString('t'),
+             T: datetime.ToString('T'),
+             g: datetime.ToString('g'),
+             G: datetime.ToString('G'),
+             UTC: datetime.ToString('UTC'),
+             Custom: datetime.ToStringCustom('dd-MM'),
+             LongDate: datetime.ToLongDateString(),
+             LongTime: datetime.ToLongTimeString()
+         },
+         add: {
+             AddYears: new DateTime('2000-01-01T00:00:00.000Z').AddYears(1).DateTime,
+             AddMonths: new DateTime('2000-01-01T00:00:00.000Z').AddMonths(1).DateTime,
+             AddDays: new DateTime('2000-01-01T00:00:00.000Z').AddDays(1).DateTime,
+             AddHours: new DateTime('2000-01-01T00:00:00.000Z').AddHours(1).DateTime,
+             AddMinutes: new DateTime('2000-01-01T00:00:00.000Z').AddMinutes(1).DateTime,
+             AddSeconds: new DateTime('2000-01-01T00:00:00.000Z').AddSeconds(1).DateTime,
+             AddMilliseconds: new DateTime('2000-01-01T00:00:00.000Z').AddMilliseconds(1).DateTime,
+         }
+     }
+ })
+```
+
+#### result:
+
+``` json
 {
   "DateTime": {
     "datetime": {
@@ -30,7 +70,7 @@ var DateTime = require('./index').DateTime
       "Timestamp": 1625072616
     },
     "string": {
-      "DateTime": "30/06/2021 17:03:35",
+      "DateTime": "01/01/2021 17:03:35",
       "Json": "2021-06-30T17:03:35.036Z",
       "D": "30/06/2021 17:03:35",
       "d": "30/06/2021",
@@ -54,6 +94,7 @@ var DateTime = require('./index').DateTime
     }
   }
 }
+
 ```
 
 <br>
