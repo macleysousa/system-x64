@@ -1,3 +1,5 @@
+import { culture } from '../types/globals.types';
+
 declare class DateTime {
     constructor(DateTime?: string | number | Date)
 
@@ -39,6 +41,6 @@ declare class DateTime {
 }
 
 type format = 'json' | 'd' | 'D' | 't' | 'T' | 'g' | 'G' | 'UTC';
-type culture = 'pt-BR' | 'en-US';
+
 
 export default DateTime

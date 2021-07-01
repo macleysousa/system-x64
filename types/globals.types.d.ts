@@ -1,0 +1,1 @@
+export type culture = 'pt-BR' | 'en-US';

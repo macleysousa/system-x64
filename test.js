@@ -38,4 +38,18 @@ const datetime = new DateTime('2000-01-01T00:00:00.000Z');
 
 //#endregion
 
+//#region Convert
+var Convert = require('./index').Convert;
 
+console.log({
+    ToNumber: Convert.ToNumber("1"),
+    ToString: Convert.ToString("1"),
+    ToBoolean: Convert.ToBoolean('false'),
+    ToChar: Convert.ToChar('ToChar'),
+    ToDateTime: Convert.ToDateTime("2001-01-01T00:00:00.000Z").DateTime,
+    ToBase64String: Convert.ToBase64String("1"),
+    NumberToString: Convert.NumberToString(1000.02, 'N2'),
+    NumberToMoney: Convert.NumberToMoney(1000, { prefix: 'R$' })
+});
+
+//#endregion

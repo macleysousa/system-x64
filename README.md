@@ -21,7 +21,8 @@ var DateTime = require('./index').DateTime
 ```
 <br>
 
-### Example
+## Example
+
 ```js
 const datetime = new DateTime('2000-01-01T00:00:00.000Z');
 
@@ -98,6 +99,45 @@ const datetime = new DateTime('2000-01-01T00:00:00.000Z');
 ```
 
 <br>
+
+## Convert
+
+### Using
+```js
+var Convert = require('./index').Convert
+//import { Convert } from 'system-x64'
+```
+<br>
+
+``` js
+var Convert = require('./index').Convert;
+
+console.log({
+    ToNumber: Convert.ToNumber("1"),
+    ToString: Convert.ToString("1"),
+    ToBoolean: Convert.ToBoolean('false'),
+    ToChar: Convert.ToChar('ToChar'),
+    ToDateTime: Convert.ToDateTime("2001-01-01T00:00:00.000Z").DateTime,
+    ToBase64String: Convert.ToBase64String("1"),
+    NumberToString: Convert.NumberToString(1000.02, 'N2'),
+    NumberToMoney: Convert.NumberToMoney(1000, { prefix: 'R$' })
+});
+```
+
+#### result:
+```json
+{
+  "ToNumber": 1,
+  "ToString": "1",
+  "ToBoolean": false,
+  "ToChar": [ "T", "o", "C", "h", "a", "r" ],
+  "ToDateTime": "2001-01-01T00:00:00.000Z",
+  "ToBase64String": "MQ==",
+  "NumberToString": "1.000,02",
+  "NumberToMoney": "R$ 1.000,00"
+}
+```
+
 
 ## License
 

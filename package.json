@@ -1,7 +1,7 @@
 {
   "name": "system-x64",
-  "version": "1.0.5",
-  "description": "Conversions and dates based on c#",
+  "version": "1.0.6",
+  "description": "Conversion system based on c# to javascript",
   "main": "index.js",
   "directories": {
     "lib": "lib"
