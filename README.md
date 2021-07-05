@@ -16,7 +16,7 @@ yarn add system-x64
 
 ### Using
 ```js
-var DateTime = require('./index').DateTime
+var DateTime = require('system-x64').DateTime
 //import { DateTime } from 'system-x64'
 ```
 <br>
@@ -104,13 +104,13 @@ const datetime = new DateTime('2000-01-01T00:00:00.000Z');
 
 ### Using
 ```js
-var Convert = require('./index').Convert
+var Convert = require('system-x64').Convert
 //import { Convert } from 'system-x64'
 ```
 <br>
 
 ``` js
-var Convert = require('./index').Convert;
+var Convert = require('system-x64').Convert;
 
 console.log({
     ToNumber: Convert.ToNumber("1"),
