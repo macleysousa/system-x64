@@ -98,6 +98,29 @@ const datetime = new DateTime('2000-01-01T00:00:00.000Z');
 
 ```
 
+### Custom
+```js
+yyyy => year //example 2021
+yy   => year //example 21
+
+MM   => months //example 01
+M    => months //example 1
+
+dd   => day   //example 02
+d    => day   //example 2
+
+hh   => hours  //example 03
+h    => hours  //example 3
+
+mm   => minutes  //example 04
+m    => minutes  //example 4
+
+ss   => seconds  //example 05
+s    => seconds  //example 5
+
+ms   => milliseconds  //example 000
+```
+
 <br>
 
 ## Convert
