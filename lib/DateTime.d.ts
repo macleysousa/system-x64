@@ -19,8 +19,7 @@ declare class DateTime {
 
     TimezoneOffSet: number;
 
-    static Now: Date;
-    static UtcNow: Date;
+    static Now: DateTime;
 
     DayOfWeek: number;
 

@@ -1,13 +1,13 @@
 {
   "name": "system-x64",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Conversion system based on c# to javascript",
   "main": "index.js",
   "directories": {
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx run test.js"
   },
   "repository": {
     "type": "git",

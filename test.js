@@ -22,7 +22,10 @@ console.log({
             UTC: datetime.ToString('UTC'),
             Custom: datetime.ToStringCustom('dd-MM'),
             LongDate: datetime.ToLongDateString(),
-            LongTime: datetime.ToLongTimeString()
+            LongTime: datetime.ToLongTimeString(),
+            Now: DateTime.Now.DateTime,
+            NowUtc: DateTime.Now.DateTimeUtc,
+            Timestamp: DateTime.Now.Timestamp
         },
         add: {
             AddYears: new DateTime('2000-01-01T00:00:00.000Z').AddYears(1).DateTime,
@@ -50,6 +53,16 @@ console.log({
     ToBase64String: Convert.ToBase64String("1"),
     NumberToString: Convert.NumberToString(1000.02, 'N2'),
     NumberToMoney: Convert.NumberToMoney(1000, { prefix: 'R$' })
+});
+
+//#endregion
+
+
+//#region Replace
+var Replace = require('./index').Replace
+console.log({
+    ReplaceSingle: Replace("1.000.000.000", ".", ""),
+    ReplaceMultiple: Replace("1.000.000.000", [".", "0"], "")
 });
 
 //#endregion

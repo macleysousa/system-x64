@@ -45,9 +45,11 @@ const datetime = new DateTime('2000-01-01T00:00:00.000Z');
              UTC: datetime.ToString('UTC'),
              Custom: datetime.ToStringCustom('dd-MM'),
              LongDate: datetime.ToLongDateString(),
-             LongTime: datetime.ToLongTimeString()
+             LongTime: datetime.ToLongTimeString(),
+             Now: DateTime.Now.DateTime,
+             NowUtc: DateTime.Now.DateTimeUtc
          },
-         add: {
+         add: {           
              AddYears: new DateTime('2000-01-01T00:00:00.000Z').AddYears(1).DateTime,
              AddMonths: new DateTime('2000-01-01T00:00:00.000Z').AddMonths(1).DateTime,
              AddDays: new DateTime('2000-01-01T00:00:00.000Z').AddDays(1).DateTime,
@@ -55,6 +57,7 @@ const datetime = new DateTime('2000-01-01T00:00:00.000Z');
              AddMinutes: new DateTime('2000-01-01T00:00:00.000Z').AddMinutes(1).DateTime,
              AddSeconds: new DateTime('2000-01-01T00:00:00.000Z').AddSeconds(1).DateTime,
              AddMilliseconds: new DateTime('2000-01-01T00:00:00.000Z').AddMilliseconds(1).DateTime,
+             //RemoveDays: new DateTime('2000-01-01T00:00:00.000Z').AddDays(-1).DateTime,
          }
      }
  })
@@ -82,7 +85,9 @@ const datetime = new DateTime('2000-01-01T00:00:00.000Z');
       "UTC": "2021-06-30T20:03:35.000Z",
       "Custom": "30-06",
       "LongDate": "Wed Jun 30 2021 17:03:35 GMT-0300 (Horário Padrão de Brasília)",
-      "LongTime": "17:03:35 GMT-0300 (Horário Padrão de Brasília)"
+      "LongTime": "17:03:35 GMT-0300 (Horário Padrão de Brasília)",
+      "Now": "2021-07-06T14:53:32.891Z",
+      "NowUtc": "2021-07-06T17:53:32.891Z"
     },
     "add": {
       "AddYears": "2001-01-01T00:00:00.000Z",
@@ -161,6 +166,34 @@ console.log({
 }
 ```
 
+
+
+
+
+
+
+
+## Replace
+
+### Using
+
+```js
+var Replace = require('system-x64').Replace
+console.log({
+    ReplaceSingle: Replace("1.000.000.000", ".", ""),
+    ReplaceMultiple: Replace("1.000.000.000", [".", "0"], "")
+});
+```
+
+<br>
+
+#### result:
+```json
+{
+  "ReplaceSingle": "1000000000",
+  "ReplaceMultiple": "1"
+}
+```
 
 ## License
 
