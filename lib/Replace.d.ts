@@ -1,1 +1,1 @@
-export default function Replace(value: string, searchValue: string | [], replaceValue: string): string
+export default function Replace(value: string, searchValue: string | string[], replaceValue: string): string
