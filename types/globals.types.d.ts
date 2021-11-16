@@ -1,1 +1,1 @@
-export type culture = 'pt-BR' | 'en-US';
+export type culture = 'pt-BR' | 'en-US' | 'de-DE' | 'ja-JP' | 'en-IN';
