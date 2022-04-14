@@ -57,7 +57,6 @@ console.log({
 
 //#endregion
 
-
 //#region Replace
 var Replace = require('./index').Replace
 console.log({
@@ -65,4 +64,15 @@ console.log({
     ReplaceMultiple: Replace("1.000.000.000", [".", "0"], "")
 });
 
+//#endregion
+
+//#region Guid
+var Guid = require('./index').Guid;
+console.log({
+    NewGuid: Guid.NewGuid(),
+    Equals: Guid.NewGuid().Equals(Guid.NewGuid()),
+    GetType: Guid.NewGuid().GetType(),
+    ToByteArray: Guid.NewGuid().ToByteArray(),
+    ToString: Guid.NewGuid().ToString()
+});
 //#endregion

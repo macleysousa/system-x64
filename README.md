@@ -198,7 +198,11 @@ N10 => 1,000.0000000000
 
 ## Replace
 
-### Using
+```js
+var Replace = require('system-x64').Replace
+//import { Replace } from 'system-x64'
+```
+<br>
 
 ```js
 var Replace = require('system-x64').Replace
@@ -215,6 +219,47 @@ console.log({
 {
   "ReplaceSingle": "1000000000",
   "ReplaceMultiple": "1"
+}
+```
+
+## Guid
+
+### Using
+```js
+var Guid = require('system-x64').Guid
+//import { Guid } from 'system-x64'
+```
+<br>
+
+```js
+var Guid = require('system-x64').Guid
+console.log({
+    NewGuid: Guid.NewGuid(),
+    Equals: Guid.NewGuid().Equals(Guid.NewGuid()),
+    GetType: Guid.NewGuid().GetType(),
+    ToByteArray: Guid.NewGuid().ToByteArray(),
+    ToString: Guid.NewGuid().ToString()
+});
+```
+
+<br>
+
+#### result:
+```json
+{
+  "NewGuid": "Guid" {
+    "guid": "94733e4f-d1e0-4c4c-9f17-eb1601b3b978",
+    "createAt": "2022-04-14T10:57:49.193Z"
+  },
+  "Equals": false,
+  "GetType": "System.Guid",
+  "ToByteArray": [
+    56, 49, 100, 50, 98, 50, 55,  52,  45,
+    53, 50,  51, 56, 45, 52, 98,  99, 101,
+    45, 97, 100, 53, 49, 45, 53, 101,  97,
+    97, 54,  53, 57, 52, 52, 99,  49,  98
+  ],
+  "ToString": "101e1d8b-c420-4934-9858-cab329919a19"
 }
 ```
 

@@ -1,10 +1,11 @@
-import DateTime from './lib/DateTime';
 import Convert from './lib/Convert';
+import DateTime from './lib/DateTime';
+import Guid from './lib/Guid';
 import Replace from './lib/Replace';
 
-
 export {
-    DateTime,
     Convert,
-    Replace
+    DateTime,
+    Guid,
+    Replace,
 }

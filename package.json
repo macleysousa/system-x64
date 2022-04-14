@@ -1,7 +1,7 @@
 {
   "name": "system-x64",
-  "version": "1.0.10",
-  "description": "Conversion system based on c# to javascript",
+  "version": "1.0.11",
+  "description": "System based on c# to javascript",
   "main": "index.js",
   "directories": {
     "lib": "lib"
