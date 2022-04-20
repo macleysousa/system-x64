@@ -18,10 +18,10 @@ declare class DateTime {
     Milliseconds: number;
 
     TimezoneOffSet: number;
-
-    static Now: DateTime;
-
+    
     DayOfWeek: number;
+    
+    static Now(): DateTime;
 
     private setDate(dateTime: Date): Date
 

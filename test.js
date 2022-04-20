@@ -23,9 +23,9 @@ console.log({
             Custom: datetime.ToStringCustom('dd-MM'),
             LongDate: datetime.ToLongDateString(),
             LongTime: datetime.ToLongTimeString(),
-            Now: DateTime.Now.DateTime,
-            NowUtc: DateTime.Now.DateTimeUtc,
-            Timestamp: DateTime.Now.Timestamp
+            Now: DateTime.Now().DateTime,
+            NowUtc: DateTime.Now().DateTimeUtc,
+            Timestamp: DateTime.Now().Timestamp
         },
         add: {
             AddYears: new DateTime('2000-01-01T00:00:00.000Z').AddYears(1).DateTime,
