@@ -76,3 +76,21 @@ console.log({
     ToString: Guid.NewGuid().ToString()
 });
 //#endregion
+
+//#region Task
+var Task = require('./index').Task;
+console.log({
+    Delay: Task.Delay(1000),
+    Run: Task.Run(() => { console.log("ss") }),
+});
+//#endregion
+
+//#region TimerTick
+var TimerTick = require('./index').TimerTick;
+var timerTick = new TimerTick(() => { }, 1000);
+console.log({
+    start: timerTick.start(),
+    isRun: timerTick.isRun,
+    stop: timerTick.stop(),
+});
+//#endregion
