@@ -4,6 +4,24 @@ exports.Convert = void 0;
 var ConvertConstructor = /** @class */ (function () {
     function ConvertConstructor() {
     }
+    ConvertConstructor.prototype.toBoolean = function (value) {
+        if (typeof value === 'boolean')
+            return value;
+        var _value = value.toString().trim().toLowerCase();
+        if (_value === 'true')
+            return true;
+        if (_value === 'false')
+            return false;
+        if (_value === '1')
+            return true;
+        if (_value === '0')
+            return false;
+        if (_value === 't')
+            return true;
+        if (_value === 'f')
+            return false;
+        throw new Error("The value '".concat(value, "' is not a boolean."));
+    };
     ConvertConstructor.prototype.toDate = function (value, options) {
         if (value instanceof Date)
             return value;
