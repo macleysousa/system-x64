@@ -1,4 +1,4 @@
-import { Culture } from "../..";
+import { Culture, Decimal } from "../..";
 import { ConvertInterface } from "./index.d";
 
 class ConvertConstructor implements ConvertInterface {
@@ -36,6 +36,13 @@ class ConvertConstructor implements ConvertInterface {
 
         return convertedValue;
     }
+
+    toDecimal(value: any): Number;
+    toDecimal(value: any, options?: { culture?: Culture | undefined; default?: Number | undefined; } | undefined): Number;
+    toDecimal(value: any, options?: any): Decimal {
+        return this.toNumber(value, options);
+    }
+
     toNumber(value: any): Number;
     toNumber(value: any, options?: { culture?: Culture; default?: Number; }): Number;
     toNumber(value: any, options?: any): Number {
