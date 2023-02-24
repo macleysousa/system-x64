@@ -12,12 +12,12 @@ declare class ConvertConstructor implements ConvertInterface {
         culture?: Culture | undefined;
         default?: Number | undefined;
     } | undefined): Number | number;
-    toNumber(value: any): Number | number;
+    toNumber(value: any): number;
     toNumber(value: any, options?: {
         culture?: Culture;
         default?: Number;
-    }): Number | number;
-    toString(value: any): String;
+    }): number;
+    toString(value: any): string;
 }
 export declare const Convert: ConvertConstructor;
 export {};

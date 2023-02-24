@@ -1,6 +1,6 @@
 {
   "name": "system-x64",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "System based on c# to javascript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

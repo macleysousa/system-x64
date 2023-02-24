@@ -59,9 +59,9 @@ class ConvertConstructor implements ConvertInterface {
         return this.toNumber(value, options);
     }
 
-    toNumber(value: any): Number | number;
-    toNumber(value: any, options?: { culture?: Culture; default?: Number; }): Number | number;
-    toNumber(value: any, options?: any): Number | number {
+    toNumber(value: any): number;
+    toNumber(value: any, options?: { culture?: Culture; default?: Number; }): number;
+    toNumber(value: any, options?: any): number {
         if (typeof value === 'number') return value;
 
         const _value = value.toString().trim();
@@ -94,7 +94,7 @@ class ConvertConstructor implements ConvertInterface {
         return convertedValue;
     }
 
-    toString(value: any): String {
+    toString(value: any): string {
         return value.toString().trim();
     }
 

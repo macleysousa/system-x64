@@ -10,8 +10,8 @@ export interface ConvertInterface {
     toDecimal(value: any): Decimal;
     toDecimal(value: any, options?: { culture?: Culture, default?: Number | number }): Decimal;
 
-    toNumber(value: any): Number | number;
-    toNumber(value: any, options?: { culture?: Culture, default?: Number | number }): Number | number;
+    toNumber(value: any): number;
+    toNumber(value: any, options?: { culture?: Culture, default?: Number | number }): number;
 
-    toString(value: any): String;
+    toString(value: any): string;
 }
