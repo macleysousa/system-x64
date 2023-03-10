@@ -1,5 +1,6 @@
 import { Culture, Decimal } from "../..";
 import { ConvertInterface } from "./index.d";
+import moment from 'moment';
 
 class ConvertConstructor implements ConvertInterface {
     toBoolean(value: number | Number | string | String): boolean | Boolean {
@@ -19,29 +20,35 @@ class ConvertConstructor implements ConvertInterface {
     }
 
     toDate(value: any): Date;
-    toDate(value: any, options?: { culture?: Culture | undefined; default?: Date | undefined; } | undefined): Date;
+    toDate(value: any, options?: { format?: string; timezone?: string; default?: Date; } | undefined): Date;
+    toDate(value: any, options?: { culture?: Culture; timezone?: string; default?: Date; } | undefined): Date;
     toDate(value: any, options?: any): Date {
         if (value instanceof Date) return value;
 
         const _value = value.toString().trim();
 
         let convertedValue: any;
-        switch (options?.culture) {
-            case 'pt-BR':
-                convertedValue = new Date(_value.replace(/(\d{2})\/(\d{2})\/(\d{4})/, '$2/$1/$3'));
-                break;
-            case 'en-US':
-                convertedValue = new Date(_value);
-                break;
-            case 'de-DE':
-                convertedValue = new Date(_value.replace(/(\d{2})\.(\d{2})\.(\d{4})/, '$2/$1/$3'));
-                break;
-            case 'ja-JP':
-                convertedValue = new Date(_value.replace(/(\d{4})\/(\d{2})\/(\d{2})/, '$2/$3/$1'));
-                break;
-            default:
-                convertedValue = new Date(_value);
-                break;
+        if (options?.format) {
+            convertedValue = moment(_value, options.format).toDate();
+        }
+        else {
+            switch (options?.culture) {
+                case 'pt-BR':
+                    convertedValue = new Date(_value.replace(/(\d{2})\/(\d{2})\/(\d{4})/, '$2/$1/$3'));
+                    break;
+                case 'en-US':
+                    convertedValue = new Date(_value);
+                    break;
+                case 'de-DE':
+                    convertedValue = new Date(_value.replace(/(\d{2})\.(\d{2})\.(\d{4})/, '$2/$1/$3'));
+                    break;
+                case 'ja-JP':
+                    convertedValue = new Date(_value.replace(/(\d{4})\/(\d{2})\/(\d{2})/, '$2/$3/$1'));
+                    break;
+                default:
+                    convertedValue = new Date(_value);
+                    break;
+            }
         }
 
         if (_value === '') return options?.default;
@@ -50,7 +57,7 @@ class ConvertConstructor implements ConvertInterface {
 
         if (isNaN(convertedValue) && options?.default == undefined) throw new Error(`The value '${value}' is not a date.`);
 
-        return convertedValue;
+        return new Date(moment(convertedValue).format('YYYY-MM-DDTHH:mm:ss') + (options?.timezone ?? '+00:00'));
     }
 
     toDecimal(value: any): Number | number;
@@ -97,7 +104,6 @@ class ConvertConstructor implements ConvertInterface {
     toString(value: any): string {
         return value.toString().trim();
     }
-
 }
 
 export const Convert = new ConvertConstructor();
