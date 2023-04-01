@@ -1,8 +1,7 @@
 import { Culture, Decimal } from "../..";
-import { ConvertInterface } from "./index.d";
 import moment from 'moment';
 
-class ConvertConstructor implements ConvertInterface {
+class ConvertConstructor {
     toBoolean(value: number | Number | string | String): boolean | Boolean {
         if (typeof value === 'boolean') return value;
 

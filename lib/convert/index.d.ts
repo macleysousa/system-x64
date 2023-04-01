@@ -1,6 +1,6 @@
 import { Culture, Decimal } from "../..";
 
-export interface ConvertInterface {
+declare class Convert {
 
     toBoolean(value: number | Number | string | String): Boolean | boolean;
 
