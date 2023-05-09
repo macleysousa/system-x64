@@ -5,18 +5,16 @@
     "outDir": "./dist",
     "strict": true,
     "noUnusedLocals": false,
-    "noUnusedParameters": false,
+    "noUnusedParameters": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "esModuleInterop": true,
+    "esModuleInterop": true
   },
-  "include": [
-    "lib/**/*"
-  ],
   "exclude": [
     "node_modules",
     "test",
     "dist",
-    "**/*spec.ts"
+    "**/*spec.ts",
+    "**/*test.ts"
   ]
 }

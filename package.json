@@ -1,6 +1,6 @@
 {
   "name": "system-x64",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "System based on c# to javascript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,11 +9,12 @@
     "build": "tsc -p tsconfig.json --declaration"
   },
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "moment": "^2.29.4"
   },
   "devDependencies": {
     "ts-node": "^10.9.1",
-    "typescript": "^4.9.5"
+    "typescript": "^5.0.4"
   },
   "repository": {
     "type": "git",
@@ -30,8 +31,5 @@
   "bugs": {
     "url": "https://github.com/macleysousa/system-x64/issues"
   },
-  "homepage": "https://github.com/macleysousa/system-x64#readme",
-  "dependencies": {
-    "moment": "^2.29.4"
-  }
+  "homepage": "https://github.com/macleysousa/system-x64#readme"
 }
