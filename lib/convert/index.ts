@@ -75,7 +75,7 @@ class ConvertConstructor {
         let convertedValue: any;
         switch (options?.culture) {
             case 'pt-BR':
-                convertedValue = Number(_value.replace(',', '').replace(',', '.'));
+                convertedValue = Number(_value.replace('.', '').replace(',', '.'));
                 break;
             case 'en-US':
                 convertedValue = Number(_value.replace(',', ''));

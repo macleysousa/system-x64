@@ -72,7 +72,7 @@ var ConvertConstructor = /** @class */ (function () {
         var convertedValue;
         switch (options === null || options === void 0 ? void 0 : options.culture) {
             case 'pt-BR':
-                convertedValue = Number(_value.replace(',', '').replace(',', '.'));
+                convertedValue = Number(_value.replace('.', '').replace(',', '.'));
                 break;
             case 'en-US':
                 convertedValue = Number(_value.replace(',', ''));
