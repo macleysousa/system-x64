@@ -12,6 +12,8 @@ var ConvertConstructor = /** @class */ (function () {
         if (typeof value === 'boolean')
             return value;
         var _value = value.toString().trim().toLowerCase();
+        if (_value === '')
+            return false;
         if (_value === 'true')
             return true;
         if (_value === 'false')
@@ -23,6 +25,52 @@ var ConvertConstructor = /** @class */ (function () {
         if (_value === 't')
             return true;
         if (_value === 'f')
+            return false;
+        if (_value === 'yes')
+            return true;
+        if (_value === 'no')
+            return false;
+        if (_value === 'y')
+            return true;
+        if (_value === 'n')
+            return false;
+        if (_value === 'on')
+            return true;
+        if (_value === 'off')
+            return false;
+        if (_value === 'enabled')
+            return true;
+        if (_value === 'disabled')
+            return false;
+        if (_value === 'enable')
+            return true;
+        if (_value === 'disable')
+            return false;
+        if (_value === 'active')
+            return true;
+        if (_value === 'inactive')
+            return false;
+        if (_value === 'in')
+            return true;
+        if (_value === 'out')
+            return false;
+        if (_value === 'i')
+            return true;
+        if (_value === 'o')
+            return false;
+        if (_value === 'ok')
+            return true;
+        if (_value === 'error')
+            return false;
+        if (_value === 'success')
+            return true;
+        if (_value === 'fail')
+            return false;
+        if (_value === 's')
+            return true;
+        if (_value === 'f')
+            return false;
+        if (_value === 'undefined')
             return false;
         throw new Error("The value '".concat(value, "' is not a boolean."));
     };

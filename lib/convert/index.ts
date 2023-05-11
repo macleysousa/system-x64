@@ -7,12 +7,36 @@ class ConvertConstructor {
 
         const _value = value.toString().trim().toLowerCase();
 
+        if (_value === '') return false;
         if (_value === 'true') return true;
         if (_value === 'false') return false;
         if (_value === '1') return true;
         if (_value === '0') return false;
         if (_value === 't') return true;
         if (_value === 'f') return false;
+        if (_value === 'yes') return true;
+        if (_value === 'no') return false;
+        if (_value === 'y') return true;
+        if (_value === 'n') return false;
+        if (_value === 'on') return true;
+        if (_value === 'off') return false;
+        if (_value === 'enabled') return true;
+        if (_value === 'disabled') return false;
+        if (_value === 'enable') return true;
+        if (_value === 'disable') return false;
+        if (_value === 'active') return true;
+        if (_value === 'inactive') return false;
+        if (_value === 'in') return true;
+        if (_value === 'out') return false;
+        if (_value === 'i') return true;
+        if (_value === 'o') return false;
+        if (_value === 'ok') return true;
+        if (_value === 'error') return false;
+        if (_value === 'success') return true;
+        if (_value === 'fail') return false;
+        if (_value === 's') return true;
+        if (_value === 'f') return false;
+        if (_value === 'undefined') return false;
 
 
         throw new Error(`The value '${value}' is not a boolean.`);
@@ -59,8 +83,8 @@ class ConvertConstructor {
         return new Date(moment(convertedValue).format('YYYY-MM-DDTHH:mm:ss') + (options?.timezone ?? '+00:00'));
     }
 
-    toDecimal(value: any): Number | number;
-    toDecimal(value: any, options?: { culture?: Culture | undefined; default?: Number | undefined; } | undefined): Number | number;
+    toDecimal(value: any): number;
+    toDecimal(value: any, options?: { culture?: Culture | undefined; default?: Number | undefined; } | undefined): number;
     toDecimal(value: any, options?: any): Decimal {
         return this.toNumber(value, options);
     }
