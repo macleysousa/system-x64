@@ -144,26 +144,25 @@ var ConvertConstructor = /** @class */ (function () {
         return convertedValue;
     };
     ConvertConstructor.prototype.toMoney = function (value, options) {
-        var _a, _b, _c, _d, _e;
+        var _a, _b, _c, _d, _e, _f;
         var prefix = (_a = options === null || options === void 0 ? void 0 : options.prefix) !== null && _a !== void 0 ? _a : '';
-        var fixedValue = value instanceof Number ? value.valueOf() : value;
-        var number = this.toNumber(fixedValue, options);
+        var _value = value instanceof Number ? value : Number(value);
         var convertedValue;
         switch (options === null || options === void 0 ? void 0 : options.culture) {
             case 'pt-BR':
-                convertedValue = number.toLocaleString('pt-BR', { style: 'decimal', currency: 'BRL', minimumFractionDigits: (_b = options === null || options === void 0 ? void 0 : options.fixad) !== null && _b !== void 0 ? _b : 2 });
+                convertedValue = _value.toLocaleString('pt-BR', { style: 'decimal', currency: 'BRL', minimumFractionDigits: (_b = options === null || options === void 0 ? void 0 : options.fixad) !== null && _b !== void 0 ? _b : 2 });
                 break;
             case 'en-US':
-                convertedValue = number.toLocaleString('en-US', { style: 'decimal', currency: 'USD', minimumFractionDigits: (_c = options === null || options === void 0 ? void 0 : options.fixad) !== null && _c !== void 0 ? _c : 2 });
+                convertedValue = _value.toLocaleString('en-US', { style: 'decimal', currency: 'USD', minimumFractionDigits: (_c = options === null || options === void 0 ? void 0 : options.fixad) !== null && _c !== void 0 ? _c : 2 });
                 break;
             case 'de-DE':
-                convertedValue = number.toLocaleString('de-DE', { style: 'decimal', currency: 'EUR', minimumFractionDigits: (_d = options === null || options === void 0 ? void 0 : options.fixad) !== null && _d !== void 0 ? _d : 2 });
+                convertedValue = _value.toLocaleString('de-DE', { style: 'decimal', currency: 'EUR', minimumFractionDigits: (_d = options === null || options === void 0 ? void 0 : options.fixad) !== null && _d !== void 0 ? _d : 2 });
                 break;
             case 'ja-JP':
-                convertedValue = number.toLocaleString('ja-JP', { style: 'decimal', currency: 'JPY', minimumFractionDigits: (_e = options === null || options === void 0 ? void 0 : options.fixad) !== null && _e !== void 0 ? _e : 2 });
+                convertedValue = _value.toLocaleString('ja-JP', { style: 'decimal', currency: 'JPY', minimumFractionDigits: (_e = options === null || options === void 0 ? void 0 : options.fixad) !== null && _e !== void 0 ? _e : 2 });
                 break;
             default:
-                convertedValue = number.toLocaleString(); // Usar a configuração padrão do ambiente
+                convertedValue = _value.toLocaleString(undefined, { minimumFractionDigits: (_f = options === null || options === void 0 ? void 0 : options.fixad) !== null && _f !== void 0 ? _f : 2 }); // Usar a configuração padrão do ambiente
                 break;
         }
         return this.toString("".concat(prefix, " ").concat(convertedValue));
