@@ -22,6 +22,13 @@ declare class ConvertConstructor {
         culture?: Culture;
         default?: Number;
     }): number;
+    toMoney(value: number | Number): string;
+    toMoney(value: number | Number, options?: {
+        prefix?: string;
+        fixad?: number;
+        culture?: Culture;
+        default?: Number;
+    }): string;
     toString(value: any): string;
 }
 export declare const Convert: ConvertConstructor;

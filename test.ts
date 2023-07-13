@@ -11,7 +11,8 @@ console.log({
     toBoolean_false: Convert.toBoolean(''),
     toBoolean_true: Convert.toBoolean('s'),
     toDecimal: Convert.toDecimal('123.456,78', { culture: 'pt-BR', default: 0 }),
-    toString: Convert.toString('test  ')
+    toString: Convert.toString('test  '),
+    toMoney: Convert.toMoney(123456, { prefix: 'R$', fixad: 2, culture: 'pt-BR', default: 0 }),
 });
 
 // const timer = new Timer(1000, () => console.log('timer', new Date()));

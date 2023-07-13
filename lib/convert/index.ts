@@ -124,6 +124,36 @@ class ConvertConstructor {
         return convertedValue;
     }
 
+    toMoney(value: number | Number): string;
+    toMoney(value: number | Number, options?: { prefix?: string, fixad?: number, culture?: Culture; default?: Number; }): string;
+    toMoney(value: number | Number, options?: any): string {
+        const prefix = options?.prefix ?? '';
+        const fixedValue = value instanceof Number ? value.valueOf() : value;
+        const number = this.toNumber(fixedValue, options);
+
+        let convertedValue: any;
+        switch (options?.culture) {
+            case 'pt-BR':
+                convertedValue = number.toLocaleString('pt-BR', { style: 'decimal', currency: 'BRL', minimumFractionDigits: options?.fixad ?? 2 });
+                break;
+            case 'en-US':
+                convertedValue = number.toLocaleString('en-US', { style: 'decimal', currency: 'USD', minimumFractionDigits: options?.fixad ?? 2 });
+                break;
+            case 'de-DE':
+                convertedValue = number.toLocaleString('de-DE', { style: 'decimal', currency: 'EUR', minimumFractionDigits: options?.fixad ?? 2 });
+                break;
+            case 'ja-JP':
+                convertedValue = number.toLocaleString('ja-JP', { style: 'decimal', currency: 'JPY', minimumFractionDigits: options?.fixad ?? 2 });
+                break;
+            default:
+                convertedValue = number.toLocaleString(); // Usar a configuração padrão do ambiente
+                break;
+        }
+
+        return this.toString(`${prefix} ${convertedValue}`);
+    }
+
+
     toString(value: any): string {
         return value.toString().trim();
     }

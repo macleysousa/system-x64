@@ -38,6 +38,7 @@ console.log({
   toBoolean: Convert.toBoolean("f"),
   toDecimal: Convert.toDecimal("123.456,78", { culture: "pt-BR", default: 0 }),
   toString: Convert.toString("test  "),
+  toMoney: Convert.toMoney(123456, { prefix: 'R$', fixad: 2, culture: 'pt-BR', default: 0 }),
 });
 ```
 
@@ -49,7 +50,8 @@ console.log({
   toNumber: 123.45678,
   toBoolean: false,
   toDecimal: 123.45678,
-  toString: 'test'
+  toString: 'test',
+  toMoney: 'R$ 123.456,00'
 }
 ```
 
