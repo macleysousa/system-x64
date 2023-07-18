@@ -1,20 +1,47 @@
 interface Array<T> {
-  groupBy(predicate: (value: T, index: number, array: T[]) => unknown, thisArg?: any): T[];
-  select<U>(predicate: (value: T, index: number, array: T[]) => U, thisArg?: any): U[];
-  sum(predicate: (value: T, index: number, array: T[]) => number, thisArg?: any): number;
-  chunk(perChunk: number, thisArg?: any): T[][];
+  groupBy<TKey>(predicate: (item: T) => TKey): GroupedItem<TKey, T>[];
+  orderBy(predicate: (value: T) => unknown, direction?: 'asc' | 'desc'): T[];
+  select<U>(predicate: (value: T, index: number, array: T[]) => U): U[];
+  sum(predicate: (value: T, index: number, array: T[]) => number): number;
+  first(predicate?: (value: T, index: number, array: T[]) => boolean, defaultValue?: T): T;
+  chunk(perChunk: number): T[][];
 }
 
-Array.prototype.groupBy = function <T>(predicate: (value: any, index: number, array: any[]) => T): T[] {
-  const uniq = (a: any, key: any) => {
-    let seen = new Set<T>();
-    return a.filter((item: any) => {
-      let k = key(item);
-      return seen.has(k) ? false : seen.add(k);
-    });
+interface GroupedItem<TKey, TElement> {
+  key: TKey;
+  values: TElement[];
+}
+
+Array.prototype.groupBy = function <T, TKey>(predicate: (value: T, index: number, array: T[]) => TKey): GroupedItem<TKey, T>[] {
+  const groups: Map<string, T[]> = new Map();
+
+  for (const item of this) {
+    const key = predicate(item as T, 0, this);
+    const group = groups.get(JSON.stringify(key));
+    if (group) {
+      group.push(item);
+    } else {
+      groups.set(JSON.stringify(key), [item]);
+    }
+  }
+  return Array.from(groups, ([key, values]) => ({ key: JSON.parse(key), values }))
+};
+
+Array.prototype.orderBy = function <T>(predicate: (value: T) => unknown, direction: 'asc' | 'desc' = 'asc'): T[] {
+  const compare = (a: T, b: T) => {
+    const aValue: any = predicate(a);
+    const bValue: any = predicate(b);
+
+    if (aValue < bValue) {
+      return direction === 'asc' ? -1 : 1;
+    } else if (aValue > bValue) {
+      return direction === 'asc' ? 1 : -1;
+    } else {
+      return 0;
+    }
   };
 
-  return uniq(this, predicate);
+  return this.slice().sort(compare);
 };
 
 Array.prototype.select = function <U>(predicate: (value: any, index: number, array: any[]) => U): U[] {
@@ -27,10 +54,17 @@ Array.prototype.sum = function (predicate: (value: any, index: number, array: an
   }, 0);
 };
 
-Array.prototype.chunk = function (perChunk: number): any[][] {
-  const inputArray = this;
+Array.prototype.first = function <T>(predicate?: (value: T, index: number, array: T[]) => boolean, defaultValue?: T): T {
+  if (predicate) {
+    const result = this.find(predicate);
+    return result !== undefined ? result : defaultValue;
+  } else {
+    return this.length > 0 ? this[0] : defaultValue;
+  }
+};
 
-  const result = inputArray.reduce((resultArray, item, index) => {
+Array.prototype.chunk = function (perChunk: number): any[][] {
+  const result = this.reduce((resultArray, item, index) => {
     const chunkIndex = Math.floor(index / perChunk);
 
     if (!resultArray[chunkIndex]) {
