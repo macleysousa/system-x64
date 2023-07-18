@@ -4,7 +4,7 @@ import './extends/array'
 //import './extends/date'
 //import './extends/string'
 
-const items = [1, 2, 3, 2, 2, 6, 6, 8, 6, 6];
+const items = [{ name: 'a' }, { name: 'b' }, {}];
 const groups = items.groupBy(x => x);
 console.log(groups.select(x => x.values.first()));
 

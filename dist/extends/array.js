@@ -4,6 +4,10 @@ Array.prototype.groupBy = function (predicate) {
     for (var _i = 0, _a = this; _i < _a.length; _i++) {
         var item = _a[_i];
         var key = predicate(item, 0, this);
+        if (key === undefined)
+            continue;
+        if (JSON.stringify(key) == '{}')
+            continue;
         var group = groups.get(JSON.stringify(key));
         if (group) {
             group.push(item);

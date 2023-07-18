@@ -17,6 +17,9 @@ Array.prototype.groupBy = function <T, TKey>(predicate: (value: T, index: number
 
   for (const item of this) {
     const key = predicate(item as T, 0, this);
+    if (key === undefined) continue;
+    if (JSON.stringify(key) == '{}') continue;
+
     const group = groups.get(JSON.stringify(key));
     if (group) {
       group.push(item);
