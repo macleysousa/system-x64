@@ -2,6 +2,7 @@ import { Convert } from './lib/convert';
 import { Timer } from './lib/timer';
 import { Task } from './lib/task';
 import { Guid } from './lib/guid';
+import './extends/array';
 import './extends/date';
 import './extends/string';
 export type Decimal = any;

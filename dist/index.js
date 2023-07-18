@@ -9,5 +9,6 @@ var task_1 = require("./lib/task");
 Object.defineProperty(exports, "Task", { enumerable: true, get: function () { return task_1.Task; } });
 var guid_1 = require("./lib/guid");
 Object.defineProperty(exports, "Guid", { enumerable: true, get: function () { return guid_1.Guid; } });
+require("./extends/array");
 require("./extends/date");
 require("./extends/string");
