@@ -1,8 +1,8 @@
 import { Convert, Timer, Task, Guid } from './index'
 
 import './extends/array'
-//import './extends/date'
-//import './extends/string'
+import './extends/date'
+import './extends/string'
 
 const items = [{ name: 'a' }, { name: 'b' }, {}];
 const groups = items.groupBy(x => x);
