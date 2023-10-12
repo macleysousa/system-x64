@@ -53,7 +53,7 @@ Array.prototype.select = function <U>(predicate: (value: any, index: number, arr
 
 Array.prototype.sum = function (predicate: (value: any, index: number, array: any[]) => number): number {
   return this.reduce((acc, item) => {
-    return acc + predicate(item, 0, this);
+    return Number(acc) + Number(predicate(item, 0, this));
   }, 0);
 };
 

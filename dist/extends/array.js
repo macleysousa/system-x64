@@ -44,7 +44,7 @@ Array.prototype.select = function (predicate) {
 Array.prototype.sum = function (predicate) {
     var _this = this;
     return this.reduce(function (acc, item) {
-        return acc + predicate(item, 0, _this);
+        return Number(acc) + Number(predicate(item, 0, _this));
     }, 0);
 };
 Array.prototype.first = function (predicate, defaultValue) {

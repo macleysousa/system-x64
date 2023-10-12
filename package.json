@@ -1,6 +1,6 @@
 {
   "name": "system-x64",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "description": "System based on c# to javascript",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -25,9 +25,19 @@
   },
   "keywords": [
     "date",
-    "datetime",
     "conversion",
-    "tostring"
+    "toString",
+    "toNumber",
+    "toBoolean",
+    "toMoney",
+    "guid",
+    "task",
+    "timer",
+    "group",
+    "format",
+    "sum",
+    "select",
+    "replaceAll"
   ],
   "author": "Macley Sousa",
   "license": "MIT",
