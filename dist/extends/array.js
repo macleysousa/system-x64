@@ -56,6 +56,15 @@ Array.prototype.first = function (predicate, defaultValue) {
         return this.length > 0 ? this[0] : defaultValue;
     }
 };
+Array.prototype.last = function (predicate, defaultValue) {
+    if (predicate) {
+        var result = this.reverse().find(predicate);
+        return result !== undefined ? result : defaultValue;
+    }
+    else {
+        return this.length > 0 ? this[this.length - 1] : defaultValue;
+    }
+};
 Array.prototype.chunk = function (perChunk) {
     var result = this.reduce(function (resultArray, item, index) {
         var chunkIndex = Math.floor(index / perChunk);

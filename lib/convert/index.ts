@@ -129,23 +129,24 @@ class ConvertConstructor {
     toMoney(value: number | Number, options?: any): string {
         const prefix = options?.prefix ?? '';
         const _value = value instanceof Number ? value : Number(value);
+        const _valueFixed = Number(_value.toFixed(options?.fixad ?? 2));
 
         let convertedValue: any;
         switch (options?.culture) {
             case 'pt-BR':
-                convertedValue = _value.toLocaleString('pt-BR', { style: 'decimal', currency: 'BRL', minimumFractionDigits: options?.fixad ?? 2 });
+                convertedValue = _valueFixed.toLocaleString('pt-BR', { style: 'decimal', currency: 'BRL', minimumFractionDigits: options?.fixad ?? 2 });
                 break;
             case 'en-US':
-                convertedValue = _value.toLocaleString('en-US', { style: 'decimal', currency: 'USD', minimumFractionDigits: options?.fixad ?? 2 });
+                convertedValue = _valueFixed.toLocaleString('en-US', { style: 'decimal', currency: 'USD', minimumFractionDigits: options?.fixad ?? 2 });
                 break;
             case 'de-DE':
-                convertedValue = _value.toLocaleString('de-DE', { style: 'decimal', currency: 'EUR', minimumFractionDigits: options?.fixad ?? 2 });
+                convertedValue = _valueFixed.toLocaleString('de-DE', { style: 'decimal', currency: 'EUR', minimumFractionDigits: options?.fixad ?? 2 });
                 break;
             case 'ja-JP':
-                convertedValue = _value.toLocaleString('ja-JP', { style: 'decimal', currency: 'JPY', minimumFractionDigits: options?.fixad ?? 2 });
+                convertedValue = _valueFixed.toLocaleString('ja-JP', { style: 'decimal', currency: 'JPY', minimumFractionDigits: options?.fixad ?? 2 });
                 break;
             default:
-                convertedValue = _value.toLocaleString(undefined, { minimumFractionDigits: options?.fixad ?? 2 }); // Usar a configuração padrão do ambiente
+                convertedValue = _valueFixed.toLocaleString(undefined, { minimumFractionDigits: options?.fixad ?? 2 }); // Usar a configuração padrão do ambiente
                 break;
         }
 

@@ -4,9 +4,11 @@ import './extends/array'
 import './extends/date'
 import './extends/string'
 
-const items = [{ name: 'a' }, { name: 'b' }, {}];
-const groups = items.groupBy(x => x);
-console.log(groups.select(x => x.values.first()));
+console.log(Convert.toMoney(123456.1045, { prefix: 'R$', fixad: 2, culture: 'pt-BR', default: 0 }));
+
+// const items = [{ name: 'a' }, { name: 'b' }, {}];
+// const groups = items.groupBy(x => x);
+// console.log(groups.select(x => x.values.first()));
 
 
 // console.log({
@@ -45,4 +47,4 @@ console.log(groups.select(x => x.values.first()));
 // console.log(guid.toString().replace);
 // console.log(Guid.isValid('e7f95b06-4e49-7e66-a917-e05ed74f4a75'));
 
-console.log("hello world".replaceAll('o', '0'));
+//console.log("hello world".replaceAll('o', '0'));

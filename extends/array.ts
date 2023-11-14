@@ -4,6 +4,7 @@ interface Array<T> {
   select<U>(predicate: (value: T, index: number, array: T[]) => U): U[];
   sum(predicate: (value: T, index: number, array: T[]) => number): number;
   first(predicate?: (value: T, index: number, array: T[]) => boolean, defaultValue?: T): T;
+  last(predicate?: (value: T, index: number, array: T[]) => boolean, defaultValue?: T): T;
   chunk(perChunk: number): T[][];
 }
 
@@ -63,6 +64,15 @@ Array.prototype.first = function <T>(predicate?: (value: T, index: number, array
     return result !== undefined ? result : defaultValue;
   } else {
     return this.length > 0 ? this[0] : defaultValue;
+  }
+};
+
+Array.prototype.last = function <T>(predicate?: (value: T, index: number, array: T[]) => boolean, defaultValue?: T): T {
+  if (predicate) {
+    const result = this.reverse().find(predicate);
+    return result !== undefined ? result : defaultValue;
+  } else {
+    return this.length > 0 ? this[this.length - 1] : defaultValue;
   }
 };
 
