@@ -149,3 +149,24 @@ Date.prototype.formatUTC = function (fmt) {
     formattedString = formattedString.replace(/SS/g, replaceValue('SS', 'ss'));
     return formattedString;
 };
+Date.prototype.diffInMilliseconds = function (date) {
+    return Math.abs(this.valueOf() - date.valueOf());
+};
+Date.prototype.diffInSeconds = function (date) {
+    return this.diffInMilliseconds(date) / 1000;
+};
+Date.prototype.diffInMinutes = function (date) {
+    return this.diffInSeconds(date) / 60;
+};
+Date.prototype.diffInHours = function (date) {
+    return this.diffInMinutes(date) / 60;
+};
+Date.prototype.diffInDays = function (date) {
+    return this.diffInHours(date) / 24;
+};
+Date.prototype.diffInMonths = function (date) {
+    return this.diffInDays(date) / 30;
+};
+Date.prototype.diffInYears = function (date) {
+    return this.diffInDays(date) / 365;
+};
