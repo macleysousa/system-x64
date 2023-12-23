@@ -4,7 +4,7 @@ import './extends/array'
 import './extends/date'
 import './extends/string'
 
-console.log(Convert.toMoney(123456.1045, { prefix: 'R$', fixad: 2, culture: 'pt-BR', default: 0 }));
+console.log(Convert.toDate('24/02/2023 10:30', { culture: 'pt-BR', timezone: '-03:00' }).formatUTC('DD/MM/YYYY HH:mm:ss'));
 
 // const items = [{ name: 'a' }, { name: 'b' }, {}];
 // const groups = items.groupBy(x => x);

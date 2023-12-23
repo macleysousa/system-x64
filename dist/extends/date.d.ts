@@ -4,4 +4,5 @@ interface Date {
     addMinutes(minutes: number): Date;
     addSeconds(seconds: number): Date;
     format(fmt: string): string;
+    formatUTC(fmt: string): string;
 }
