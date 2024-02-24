@@ -5,7 +5,6 @@ import { Guid } from './lib/guid';
 
 import './extends/array';
 import './extends/date';
-import './extends/string';
 
 export type Decimal = any;
 

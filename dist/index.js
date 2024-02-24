@@ -11,4 +11,3 @@ var guid_1 = require("./lib/guid");
 Object.defineProperty(exports, "Guid", { enumerable: true, get: function () { return guid_1.Guid; } });
 require("./extends/array");
 require("./extends/date");
-require("./extends/string");
