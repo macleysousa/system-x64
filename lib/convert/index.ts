@@ -125,28 +125,28 @@ class ConvertConstructor {
     }
 
     toMoney(value: number | Number): string;
-    toMoney(value: number | Number, options?: { prefix?: string, fixad?: number, culture?: Culture; default?: Number; }): string;
+    toMoney(value: number | Number, options?: { prefix?: string, fixed?: number, culture?: Culture; default?: Number; }): string;
     toMoney(value: number | Number, options?: any): string {
         const prefix = options?.prefix ?? '';
         const _value = value instanceof Number ? value : Number(value);
-        const _valueFixed = Number(_value.toFixed(options?.fixad ?? 2));
+        const _valueFixed = Number(_value.toFixed(options?.fixed ?? 2));
 
         let convertedValue: any;
         switch (options?.culture) {
             case 'pt-BR':
-                convertedValue = _valueFixed.toLocaleString('pt-BR', { style: 'decimal', currency: 'BRL', minimumFractionDigits: options?.fixad ?? 2 });
+                convertedValue = _valueFixed.toLocaleString('pt-BR', { style: 'decimal', currency: 'BRL', minimumFractionDigits: options?.fixed ?? 2 });
                 break;
             case 'en-US':
-                convertedValue = _valueFixed.toLocaleString('en-US', { style: 'decimal', currency: 'USD', minimumFractionDigits: options?.fixad ?? 2 });
+                convertedValue = _valueFixed.toLocaleString('en-US', { style: 'decimal', currency: 'USD', minimumFractionDigits: options?.fixed ?? 2 });
                 break;
             case 'de-DE':
-                convertedValue = _valueFixed.toLocaleString('de-DE', { style: 'decimal', currency: 'EUR', minimumFractionDigits: options?.fixad ?? 2 });
+                convertedValue = _valueFixed.toLocaleString('de-DE', { style: 'decimal', currency: 'EUR', minimumFractionDigits: options?.fixed ?? 2 });
                 break;
             case 'ja-JP':
-                convertedValue = _valueFixed.toLocaleString('ja-JP', { style: 'decimal', currency: 'JPY', minimumFractionDigits: options?.fixad ?? 2 });
+                convertedValue = _valueFixed.toLocaleString('ja-JP', { style: 'decimal', currency: 'JPY', minimumFractionDigits: options?.fixed ?? 2 });
                 break;
             default:
-                convertedValue = _valueFixed.toLocaleString(undefined, { minimumFractionDigits: options?.fixad ?? 2 }); // Usar a configuração padrão do ambiente
+                convertedValue = _valueFixed.toLocaleString(undefined, { minimumFractionDigits: options?.fixed ?? 2 }); // Usar a configuração padrão do ambiente
                 break;
         }
 

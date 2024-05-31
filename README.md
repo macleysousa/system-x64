@@ -38,7 +38,7 @@ console.log({
   toBoolean: Convert.toBoolean("f"),
   toDecimal: Convert.toDecimal("123.456,78", { culture: "pt-BR", default: 0 }),
   toString: Convert.toString("test  "),
-  toMoney: Convert.toMoney(123456, { prefix: 'R$', fixad: 2, culture: 'pt-BR', default: 0 }),
+  toMoney: Convert.toMoney(123456, { prefix: 'R$', fixed: 2, culture: 'pt-BR', default: 0 }),
 });
 ```
 

@@ -147,23 +147,23 @@ var ConvertConstructor = /** @class */ (function () {
         var _a, _b, _c, _d, _e, _f, _g;
         var prefix = (_a = options === null || options === void 0 ? void 0 : options.prefix) !== null && _a !== void 0 ? _a : '';
         var _value = value instanceof Number ? value : Number(value);
-        var _valueFixed = Number(_value.toFixed((_b = options === null || options === void 0 ? void 0 : options.fixad) !== null && _b !== void 0 ? _b : 2));
+        var _valueFixed = Number(_value.toFixed((_b = options === null || options === void 0 ? void 0 : options.fixed) !== null && _b !== void 0 ? _b : 2));
         var convertedValue;
         switch (options === null || options === void 0 ? void 0 : options.culture) {
             case 'pt-BR':
-                convertedValue = _valueFixed.toLocaleString('pt-BR', { style: 'decimal', currency: 'BRL', minimumFractionDigits: (_c = options === null || options === void 0 ? void 0 : options.fixad) !== null && _c !== void 0 ? _c : 2 });
+                convertedValue = _valueFixed.toLocaleString('pt-BR', { style: 'decimal', currency: 'BRL', minimumFractionDigits: (_c = options === null || options === void 0 ? void 0 : options.fixed) !== null && _c !== void 0 ? _c : 2 });
                 break;
             case 'en-US':
-                convertedValue = _valueFixed.toLocaleString('en-US', { style: 'decimal', currency: 'USD', minimumFractionDigits: (_d = options === null || options === void 0 ? void 0 : options.fixad) !== null && _d !== void 0 ? _d : 2 });
+                convertedValue = _valueFixed.toLocaleString('en-US', { style: 'decimal', currency: 'USD', minimumFractionDigits: (_d = options === null || options === void 0 ? void 0 : options.fixed) !== null && _d !== void 0 ? _d : 2 });
                 break;
             case 'de-DE':
-                convertedValue = _valueFixed.toLocaleString('de-DE', { style: 'decimal', currency: 'EUR', minimumFractionDigits: (_e = options === null || options === void 0 ? void 0 : options.fixad) !== null && _e !== void 0 ? _e : 2 });
+                convertedValue = _valueFixed.toLocaleString('de-DE', { style: 'decimal', currency: 'EUR', minimumFractionDigits: (_e = options === null || options === void 0 ? void 0 : options.fixed) !== null && _e !== void 0 ? _e : 2 });
                 break;
             case 'ja-JP':
-                convertedValue = _valueFixed.toLocaleString('ja-JP', { style: 'decimal', currency: 'JPY', minimumFractionDigits: (_f = options === null || options === void 0 ? void 0 : options.fixad) !== null && _f !== void 0 ? _f : 2 });
+                convertedValue = _valueFixed.toLocaleString('ja-JP', { style: 'decimal', currency: 'JPY', minimumFractionDigits: (_f = options === null || options === void 0 ? void 0 : options.fixed) !== null && _f !== void 0 ? _f : 2 });
                 break;
             default:
-                convertedValue = _valueFixed.toLocaleString(undefined, { minimumFractionDigits: (_g = options === null || options === void 0 ? void 0 : options.fixad) !== null && _g !== void 0 ? _g : 2 }); // Usar a configuração padrão do ambiente
+                convertedValue = _valueFixed.toLocaleString(undefined, { minimumFractionDigits: (_g = options === null || options === void 0 ? void 0 : options.fixed) !== null && _g !== void 0 ? _g : 2 }); // Usar a configuração padrão do ambiente
                 break;
         }
         return this.toString("".concat(prefix, " ").concat(convertedValue));

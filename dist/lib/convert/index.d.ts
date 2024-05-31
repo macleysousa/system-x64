@@ -25,11 +25,11 @@ declare class ConvertConstructor {
     toMoney(value: number | Number): string;
     toMoney(value: number | Number, options?: {
         prefix?: string;
-        fixad?: number;
+        fixed?: number;
         culture?: Culture;
         default?: Number;
     }): string;
     toString(value: any): string;
 }
 export declare const Convert: ConvertConstructor;
-export {};
+export { };
