@@ -1,4 +1,6 @@
 interface Date {
+    addYears(years: number): Date;
+    addMonths(months: number): Date;
     addDays(days: number): Date;
     addHours(hours: number): Date;
     addMinutes(minutes: number): Date;

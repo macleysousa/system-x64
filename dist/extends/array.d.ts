@@ -3,8 +3,8 @@ interface Array<T> {
     orderBy(predicate: (value: T) => unknown, direction?: 'asc' | 'desc'): T[];
     select<U>(predicate: (value: T, index: number, array: T[]) => U): U[];
     sum(predicate: (value: T, index: number, array: T[]) => number): number;
-    first(predicate?: (value: T, index: number, array: T[]) => boolean, defaultValue?: T): T;
-    last(predicate?: (value: T, index: number, array: T[]) => boolean, defaultValue?: T): T;
+    first(predicate?: (value: T, index: number, array: T[]) => boolean, defaultValue?: T): T | undefined;
+    last(predicate?: (value: T, index: number, array: T[]) => boolean, defaultValue?: T): T | undefined;
     chunk(perChunk: number): T[][];
 }
 interface GroupedItem<TKey, TElement> {

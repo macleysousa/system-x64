@@ -3,8 +3,8 @@ interface Array<T> {
   orderBy(predicate: (value: T) => unknown, direction?: 'asc' | 'desc'): T[];
   select<U>(predicate: (value: T, index: number, array: T[]) => U): U[];
   sum(predicate: (value: T, index: number, array: T[]) => number): number;
-  first(predicate?: (value: T, index: number, array: T[]) => boolean, defaultValue?: T): T;
-  last(predicate?: (value: T, index: number, array: T[]) => boolean, defaultValue?: T): T;
+  first(predicate?: (value: T, index: number, array: T[]) => boolean, defaultValue?: T): T | undefined;
+  last(predicate?: (value: T, index: number, array: T[]) => boolean, defaultValue?: T): T | undefined;
   chunk(perChunk: number): T[][];
 }
 
@@ -58,7 +58,7 @@ Array.prototype.sum = function (predicate: (value: any, index: number, array: an
   }, 0);
 };
 
-Array.prototype.first = function <T>(predicate?: (value: T, index: number, array: T[]) => boolean, defaultValue?: T): T {
+Array.prototype.first = function <T>(predicate?: (value: T, index: number, array: T[]) => boolean, defaultValue?: T): T | undefined {
   if (predicate) {
     const result = this.find(predicate);
     return result !== undefined ? result : defaultValue;
@@ -67,7 +67,7 @@ Array.prototype.first = function <T>(predicate?: (value: T, index: number, array
   }
 };
 
-Array.prototype.last = function <T>(predicate?: (value: T, index: number, array: T[]) => boolean, defaultValue?: T): T {
+Array.prototype.last = function <T>(predicate?: (value: T, index: number, array: T[]) => boolean, defaultValue?: T): T | undefined {
   if (predicate) {
     const result = this.reverse().find(predicate);
     return result !== undefined ? result : defaultValue;

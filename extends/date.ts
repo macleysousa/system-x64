@@ -1,4 +1,6 @@
 interface Date {
+    addYears(years: number): Date;
+    addMonths(months: number): Date;
     addDays(days: number): Date;
     addHours(hours: number): Date;
     addMinutes(minutes: number): Date;
@@ -13,6 +15,18 @@ interface Date {
     diffInMonths(date: Date): number;
     diffInYears(date: Date): number;
 }
+
+Date.prototype.addYears = function (years: number): Date {
+    const date = new Date(this.valueOf());
+    date.setFullYear(date.getFullYear() + years);
+    return date;
+};
+
+Date.prototype.addMonths = function (months: number): Date {
+    const date = new Date(this.valueOf());
+    date.setMonth(date.getMonth() + months);
+    return date;
+};
 
 Date.prototype.addDays = function (days: number): Date {
     const date = new Date(this.valueOf());

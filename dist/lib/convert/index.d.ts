@@ -32,4 +32,4 @@ declare class ConvertConstructor {
     toString(value: any): string;
 }
 export declare const Convert: ConvertConstructor;
-export { };
+export {};
